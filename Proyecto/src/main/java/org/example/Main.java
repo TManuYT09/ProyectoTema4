@@ -4,46 +4,99 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * @author: Manuel Carrera
- * @version: 1.0
+ * @author - Manuel Carrera
+ * @version 2.0
  */
 public class Main {
-    
+
     static Scanner in;
 
-    public static void casoDePrueba() {
+    /**
+     * @author - Manuel Carrera Martínez
+     * @return texto - devuelve los años introducidos.
+     */
+    public static String introducirValor(){
         Scanner entrada=new Scanner(System.in);
 
-        String anyos=entrada.nextLine();
+        String texto=entrada.nextLine();
+
+        return texto;
+    }
+
+    /**
+     * @author - Manuel Carrera Martínez
+     * @param ano - es el año que se cambiara el tipo de dato de String a int
+     * @return anyos - devuelve el año ya cambiado para guardar en el Array
+     */
+    public static int cambiarValorANumero(String ano){
+        int anyos;
+
+        try {
+            anyos = Integer.parseInt(ano);
+        }catch (NumberFormatException err){
+            anyos=-1;
+        }
+
+        return anyos;
+    }
+
+    /**
+     * @author - Manuel Carrera Martínez
+     * @param numero - es el valor del número que vamos a comprobar si tiene el formato correcto
+     * @return situacion - devuelve si el año esta en el rango de 1 a 1900, si lo esta es true, si no, false
+     */
+    public static boolean comprobarCondicion(int numero){
+        boolean situacion;
+        if (numero > 1 && numero < 1900){
+            situacion=true;
+        }else {
+            situacion=false;
+        }
+        return situacion;
+    }
+
+    /**
+     * @author - Manuel Carrera Martínez
+     * @param anos - es el vector que contiene los años
+     */
+    public static void resultadoFinal(int[] anos){
+        int anos_ordenado[]=anos.clone();
+        Arrays.sort(anos_ordenado);
+
+        int mayor=anos_ordenado[anos_ordenado.length-1];
+        int menor=anos_ordenado[0];
+
+        if (anos[1]>=anos[2]){
+            int mayor_pos= Arrays.binarySearch(anos_ordenado, mayor);
+            int menor_pos= Arrays.binarySearch(anos_ordenado, menor);
+
+            mayor=anos_ordenado[mayor_pos-1];
+            menor=anos_ordenado[menor_pos+1];
+
+            if (mayor-menor<0){
+                System.out.println(0);
+            }else {
+                System.out.println(mayor-menor+1);
+            }
+        }else {
+            System.out.println(0);
+        }
+    }
+
+    public static void casoDePrueba() {
+
+        String anyos=introducirValor();
         String[] anyos_texto=anyos.split(" ");
         int[] anos=new int[anyos_texto.length];
+        boolean comp=true;
 
         if (anos.length==4){
             for (int i = 0; i < anos.length; i++) {
-                anos[i]=Integer.parseInt(anyos_texto[i]);
+                anos[i]=cambiarValorANumero(anyos_texto[i]);
+                comp=comprobarCondicion(anos[i]);
             }
-
-            int anos_ordenado[]=anos.clone();
-            Arrays.sort(anos_ordenado);
-
-            int mayor=anos_ordenado[anos_ordenado.length-1];
-            int menor=anos_ordenado[0];
-
-            if (anos[1]>=anos[2]){
-                int mayor_pos= Arrays.binarySearch(anos_ordenado, mayor);
-                int menor_pos= Arrays.binarySearch(anos_ordenado, menor);
-
-                mayor=anos_ordenado[mayor_pos-1];
-                menor=anos_ordenado[menor_pos+1];
-
-                if (mayor-menor<0){
-                    System.out.println(0);
-                }else {
-                    System.out.println(mayor-menor+1);
-                }
-
-            }else {
-                System.out.println(0);
+            if (comp){
+                resultadoFinal(anos);
             }
         }
     }
@@ -52,8 +105,8 @@ public class Main {
 
         in = new Scanner(System.in);
 
-        int numCasos = in.nextInt();
-        for (int i = 0; i < numCasos; i++)
+        long numCasos = in.nextInt();
+        for (long i = 0; i < numCasos; i++)
             casoDePrueba();
     }
 }
