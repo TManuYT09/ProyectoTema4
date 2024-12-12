@@ -56,6 +56,21 @@ public class Main {
     }
 
     /**
+     *
+     * @param anos - es el array que contiene los años sin ordenar
+     * @return - devuelve un booleano falso en el caso de que la edad de muerte es mayor a 100
+     */
+    public  static boolean comprobarCien(int[] anos){
+
+        for (int i = 0; i < anos.length; i=i+2) {
+            if (anos[i]-anos[i+1]>=100){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * @author - Manuel Carrera Martínez
      * @param anos - es el vector que contiene los años
      */
@@ -96,8 +111,13 @@ public class Main {
                 comp=comprobarCondicion(anos[i]);
             }
             if (comp){
-                resultadoFinal(anos);
+                comp=comprobarCien(anos);
+                if (comp){
+                    resultadoFinal(anos);
+                }
             }
+
+
         }
     }
 
