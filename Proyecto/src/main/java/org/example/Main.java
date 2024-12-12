@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * @author - Manuel Carrera
+ * @author Manuel Carrera
  * @version 2.0
  */
 public class Main {
@@ -12,7 +12,7 @@ public class Main {
     static Scanner in;
 
     /**
-     * @author - Manuel Carrera Martínez
+     * @author Manuel Carrera Martínez
      * @return texto - devuelve los años introducidos.
      */
     public static String introducirValor(){
@@ -24,8 +24,8 @@ public class Main {
     }
 
     /**
-     * @author - Manuel Carrera Martínez
-     * @param ano - es el año que se cambiara el tipo de dato de String a int
+     * @author Manuel Carrera Martínez
+     * @param ano es el año que se cambiara el tipo de dato de String a int
      * @return anyos - devuelve el año ya cambiado para guardar en el Array
      */
     public static int cambiarValorANumero(String ano){
@@ -41,8 +41,8 @@ public class Main {
     }
 
     /**
-     * @author - Manuel Carrera Martínez
-     * @param numero - es el valor del número que vamos a comprobar si tiene el formato correcto
+     * @author Manuel Carrera Martínez
+     * @param numero es el valor del número que vamos a comprobar si tiene el formato correcto
      * @return situacion - devuelve si el año esta en el rango de 1 a 1900, si lo esta es true, si no, false
      */
     public static boolean comprobarCondicion(int numero){
@@ -57,7 +57,7 @@ public class Main {
 
     /**
      *
-     * @param anos - es el array que contiene los años sin ordenar
+     * @param anos es el array que contiene los años sin ordenar
      * @return - devuelve un booleano falso en el caso de que la edad de muerte es mayor a 100
      */
     public  static boolean comprobarCien(int[] anos){
@@ -99,7 +99,7 @@ public class Main {
     }
 
     public static void casoDePrueba() {
-
+        
         String anyos=introducirValor();
         String[] anyos_texto=anyos.split(" ");
         int[] anos=new int[anyos_texto.length];
@@ -116,8 +116,6 @@ public class Main {
                     resultadoFinal(anos);
                 }
             }
-
-
         }
     }
 
