@@ -77,7 +77,7 @@ public class Main {
      * @param anos es el vector que contiene los años
      */
     public static void resultadoFinal(int[] anos){
-        int anos_ordenado[]=anos.clone();
+        int[] anos_ordenado =anos.clone();
         Arrays.sort(anos_ordenado);
 
         if (anos[1]>=anos[2]){
