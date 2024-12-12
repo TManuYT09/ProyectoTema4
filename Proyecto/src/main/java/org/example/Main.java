@@ -62,17 +62,19 @@ public class Main {
      */
     public  static boolean comprobarCien(int[] anos){
 
-        for (int i = 0; i < anos.length; i=i+2) {
-            if (anos[i]-anos[i+1]>=100){
-                return false;
+        for (int i = 0; i < anos.length; i++) {
+            if (i%2==0){
+                if (anos[i+1]-anos[i]>=100){
+                    return false;
+                }
             }
         }
         return true;
     }
 
     /**
-     * @author - Manuel Carrera Martínez
-     * @param anos - es el vector que contiene los años
+     * @author Manuel Carrera Martínez
+     * @param anos es el vector que contiene los años
      */
     public static void resultadoFinal(int[] anos){
         int anos_ordenado[]=anos.clone();
@@ -99,7 +101,6 @@ public class Main {
     }
 
     public static void casoDePrueba() {
-        
         String anyos=introducirValor();
         String[] anyos_texto=anyos.split(" ");
         int[] anos=new int[anyos_texto.length];
