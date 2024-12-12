@@ -80,15 +80,9 @@ public class Main {
         int anos_ordenado[]=anos.clone();
         Arrays.sort(anos_ordenado);
 
-        int mayor=anos_ordenado[anos_ordenado.length-1];
-        int menor=anos_ordenado[0];
-
         if (anos[1]>=anos[2]){
-            int mayor_pos= Arrays.binarySearch(anos_ordenado, mayor);
-            int menor_pos= Arrays.binarySearch(anos_ordenado, menor);
-
-            mayor=anos_ordenado[mayor_pos-1];
-            menor=anos_ordenado[menor_pos+1];
+            int mayor=anos_ordenado[2];
+            int menor=anos_ordenado[1];
 
             if (mayor-menor<0){
                 System.out.println(0);
