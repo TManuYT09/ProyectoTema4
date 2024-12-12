@@ -105,7 +105,7 @@ public class Main {
 
         in = new Scanner(System.in);
 
-        long numCasos = in.nextInt();
+        long numCasos = in.nextLong();
         for (long i = 0; i < numCasos; i++)
             casoDePrueba();
     }
