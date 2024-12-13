@@ -80,7 +80,7 @@ public class Main {
         int[] anos_ordenado =anos.clone();
         Arrays.sort(anos_ordenado);
 
-        if (anos[1]>=anos[2]){
+        if (anos[1]>anos[2]){
             int mayor=anos_ordenado[2];
             int menor=anos_ordenado[1];
 
