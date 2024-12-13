@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -115,8 +116,16 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
-        in = new Scanner(System.in);
+        boolean comp;
+        do {
+            try{
+                in = new Scanner(System.in);
+                comp=false;
+            }catch (InputMismatchException err){
+                in.nextLine();
+                comp=true;
+            }
+        }while(comp);
 
         int numCasos = in.nextInt();
         for (int i = 0; i < numCasos; i++)
