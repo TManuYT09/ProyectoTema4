@@ -59,13 +59,13 @@ public class Main {
     /**
      *
      * @param anos es el array que contiene los años sin ordenar
-     * @return - devuelve un booleano falso en el caso de que la edad de muerte es mayor a 100
+     * @return devuelve un booleano falso si se cumple la condición
      */
     public  static boolean comprobarCien(int[] anos){
 
         for (int i = 0; i < anos.length; i++) {
             if (i%2==0){
-                if (anos[i+1]-anos[i]>=100){
+                if (anos[i+1]-anos[i]>=100 || anos[i+1]<anos[i]){
                     return false;
                 }
             }
