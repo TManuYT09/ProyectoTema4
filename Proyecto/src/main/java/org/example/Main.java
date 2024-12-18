@@ -117,9 +117,12 @@ public class Main {
 
     public static void main(String[] args) {
         boolean comp;
+        in = new Scanner(System.in);
+        int numCasos=0;
+
         do {
             try{
-                in = new Scanner(System.in);
+                numCasos = in.nextInt();
                 comp=false;
             }catch (InputMismatchException err){
                 in.nextLine();
@@ -127,7 +130,7 @@ public class Main {
             }
         }while(comp);
 
-        int numCasos = in.nextInt();
+
         for (int i = 0; i < numCasos; i++)
             casoDePrueba();
     }
